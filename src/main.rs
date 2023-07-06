@@ -42,7 +42,7 @@ impl AzureStorageBackend {
                         Arc::clone(existing_client)
                     },
                     None => {
-                        println!("Found existing client");
+                        println!("Creating new client");
                         let token_credential = Arc::new(DefaultAzureCredentialBuilder::default().build());
                         let refresh_token = Arc::new(AutoRefreshingTokenCredential::new(token_credential));
                         let storage_credentials = StorageCredentials::token_credential(refresh_token);
